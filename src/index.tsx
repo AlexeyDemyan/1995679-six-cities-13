@@ -6,7 +6,7 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
-const favoritesCount = 7;
+const favoritesCount = 9;
 
 root.render(
   <React.StrictMode>
