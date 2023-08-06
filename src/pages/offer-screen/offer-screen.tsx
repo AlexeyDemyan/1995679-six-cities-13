@@ -1,4 +1,5 @@
 import Header from "../../components/header/header";
+import { Helmet } from "react-helmet-async";
 
 type OfferScreenProps = {
   favoritesCount: number;
@@ -7,6 +8,9 @@ type OfferScreenProps = {
 function OfferScreen({favoritesCount}: OfferScreenProps): JSX.Element {
   return (
     <div className="page">
+      <Helmet>
+        <title>Offer Part</title>
+      </Helmet>
     <Header favoritesCount={favoritesCount}/>
     <main className="page__main page__main--offer">
       <section className="offer">

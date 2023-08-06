@@ -1,5 +1,6 @@
 import CitiesCard from '../../components/cities-card/cities-card';
 import Header from '../../components/header/header';
+import { Helmet } from 'react-helmet-async';
 
 type MainScreenProps = {
   favoritesCount: number;
@@ -8,6 +9,9 @@ type MainScreenProps = {
 function MainScreen({ favoritesCount }: MainScreenProps): JSX.Element {
   return (
     <div className="page page--gray page--main">
+      <Helmet>
+        <title>Main Menu</title>
+      </Helmet>
       <Header favoritesCount={favoritesCount}/>
       <main className="page__main page__main--index">
         <h1 className="visually-hidden">Cities</h1>

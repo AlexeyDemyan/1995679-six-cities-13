@@ -1,4 +1,5 @@
 import Header from '../../components/header/header';
+import { Helmet } from 'react-helmet-async';
 
 type FavoritesScreenProps = {
   favoritesCount: number;
@@ -9,6 +10,9 @@ function FavoritesScreen({
 }: FavoritesScreenProps): JSX.Element {
   return (
     <div className="page">
+      <Helmet>
+        <title>Your Favorites</title>
+      </Helmet>
       <Header favoritesCount={favoritesCount} />
       <main className="page__main page__main--favorites">
         <div className="page__favorites-container container">
