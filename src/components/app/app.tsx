@@ -7,19 +7,26 @@ import NotFoundScreen from '../../pages/not-found-screen/not-found-screen';
 import { AppRoute, AuthorizationStatus } from '../../const';
 import PrivateRoute from '../private-route/private-route';
 import { HelmetProvider } from 'react-helmet-async';
+import { Offer } from '../../types/offer';
 
 type AppScreenProps = {
   favoritesCount: number;
+  offers: Offer[];
 };
 
-function App({ favoritesCount }: AppScreenProps): JSX.Element {
+function App({ favoritesCount, offers }: AppScreenProps): JSX.Element {
   return (
     <HelmetProvider>
       <BrowserRouter>
         <Routes>
           <Route
             path={AppRoute.Root}
-            element={<MainScreen favoritesCount={favoritesCount}></MainScreen>}
+            element={
+              <MainScreen
+                favoritesCount={favoritesCount}
+                offers={offers}
+              ></MainScreen>
+            }
           />
           <Route path={AppRoute.Login} element={<LoginScreen />} />
           <Route
