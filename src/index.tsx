@@ -8,8 +8,12 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
+const onAnswer = () => {
+  console.log('testin');
+}
+
 root.render(
   <React.StrictMode>
-    <App favoritesCount={favoritesCount} offers={offers}></App>
+    <App favoritesCount={favoritesCount} offers={offers} onAnswer={onAnswer}></App>
   </React.StrictMode>
 );

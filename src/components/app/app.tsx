@@ -4,17 +4,19 @@ import OfferScreen from '../../pages/offer-screen/offer-screen';
 import LoginScreen from '../../pages/login-screen/login-screen';
 import FavoritesScreen from '../../pages/favorites-screen/favorites-screen';
 import NotFoundScreen from '../../pages/not-found-screen/not-found-screen';
-import { AppRoute, AuthorizationStatus } from '../../const';
-import PrivateRoute from '../private-route/private-route';
+import { AppRoute,  } from '../../const';
+// import { AuthorizationStatus } from '../../const';
+// import PrivateRoute from '../private-route/private-route';
 import { HelmetProvider } from 'react-helmet-async';
 import { Offer } from '../../types/offer';
 
 type AppScreenProps = {
   favoritesCount: number;
   offers: Offer[];
+  onAnswer: () => void;
 };
 
-function App({ favoritesCount, offers }: AppScreenProps): JSX.Element {
+function App({ favoritesCount, offers, onAnswer }: AppScreenProps): JSX.Element {
   return (
     <HelmetProvider>
       <BrowserRouter>
@@ -39,7 +41,7 @@ function App({ favoritesCount, offers }: AppScreenProps): JSX.Element {
           />
           <Route
             path={AppRoute.Offer}
-            element={<OfferScreen favoritesCount={favoritesCount} />}
+            element={<OfferScreen favoritesCount={favoritesCount} onAnswer={onAnswer}/>}
           />
           <Route path="*" element={<NotFoundScreen />} />
         </Routes>

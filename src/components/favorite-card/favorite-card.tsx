@@ -1,20 +1,14 @@
 import { Offer } from '../../types/offer';
+import { useState } from 'react';
 
 type FavoriteCardProps = {
   offer: Offer;
 };
 
 function FavoriteCard({ offer }: FavoriteCardProps): JSX.Element {
-  const {
-    id,
-    name,
-    type,
-    price,
-    city,
-    rating,
-    isPremium,
-    imageSrc,
-  } = offer;
+  const { id, name, type, price, city, rating, isPremium, imageSrc } = offer;
+
+  const [isActive, setIsActive] = useState(false);
 
   return (
     <li className="favorites__locations-items" id={id}>
@@ -32,7 +26,17 @@ function FavoriteCard({ offer }: FavoriteCardProps): JSX.Element {
               <span>Premium</span>
             </div>
           ) : null}
-          <div className="favorites__image-wrapper place-card__image-wrapper">
+          <div
+            className="favorites__image-wrapper place-card__image-wrapper"
+            onMouseEnter={() => {
+              setIsActive(true);
+              console.log(isActive);
+            }}
+            onMouseLeave={() => {
+              setIsActive(false);
+              console.log(isActive);
+            }}
+          >
             <a href="#">
               <img
                 className="place-card__image"
