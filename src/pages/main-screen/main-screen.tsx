@@ -1,4 +1,4 @@
-import CitiesCard from '../../components/cities-card/cities-card';
+import CardsList from '../../components/cards-list/cards-list';
 import Header from '../../components/header/header';
 import { Helmet } from 'react-helmet-async';
 import { Offer } from '../../types/offer';
@@ -84,10 +84,7 @@ function MainScreen({ favoritesCount, offers }: MainScreenProps): JSX.Element {
                   </li>
                 </ul>
               </form>
-              <div className="cities__places-list places__list tabs__content">
-                {offers.map((offer) => <CitiesCard key={offer.id} offer={offer}></CitiesCard>
-                )}
-              </div>
+              <CardsList offers={offers} />
             </section>
             <div className="cities__right-section">
               <section className="cities__map map"></section>

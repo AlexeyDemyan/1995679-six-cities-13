@@ -1,10 +1,11 @@
+import { useState } from 'react';
 import { Offer } from '../../types/offer';
 
-type CardProps = {
+type CitiesCardProps = {
   offer: Offer;
 };
 
-function CitiesCard({ offer }: CardProps): JSX.Element {
+function CitiesCard({ offer }: CitiesCardProps): JSX.Element {
   const {
     id,
     name,
@@ -17,12 +18,26 @@ function CitiesCard({ offer }: CardProps): JSX.Element {
     imageSrc,
   } = offer;
 
+  const [isActive, setIsActive] = useState(false);
+
   return (
     <article className="cities__card place-card" id={id}>
-      <div className="place-card__mark">
-        <span>{isPremium ? 'Premium' : ''}</span>
-      </div>
-      <div className="cities__image-wrapper place-card__image-wrapper">
+      {isPremium ? (
+        <div className="place-card__mark">
+          <span>Premium</span>
+        </div>
+      ) : null}
+      <div
+        className="cities__image-wrapper place-card__image-wrapper"
+        onMouseEnter={() => {
+          setIsActive(true);
+          console.log(isActive);
+        }}
+        onMouseLeave={() => {
+          setIsActive(false);
+          console.log(isActive);
+        }}
+      >
         <a href="#">
           <img
             className="place-card__image"
