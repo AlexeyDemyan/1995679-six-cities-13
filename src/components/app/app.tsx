@@ -1,4 +1,4 @@
-import { Route, BrowserRouter, Routes } from 'react-router-dom';
+import { Route, BrowserRouter, Routes, useParams } from 'react-router-dom';
 import MainScreen from '../../pages/main-screen/main-screen';
 import OfferScreen from '../../pages/offer-screen/offer-screen';
 import LoginScreen from '../../pages/login-screen/login-screen';
@@ -10,6 +10,8 @@ import { AppRoute,  } from '../../const';
 import { HelmetProvider } from 'react-helmet-async';
 import { Offer } from '../../types/offer';
 
+// Need to /offer/:id routing, check how it was done
+
 type AppScreenProps = {
   favoritesCount: number;
   offers: Offer[];
@@ -17,6 +19,10 @@ type AppScreenProps = {
 };
 
 function App({ favoritesCount, offers, onAnswer }: AppScreenProps): JSX.Element {
+  const {id} = useParams();
+
+  console.log(id)
+
   return (
     <HelmetProvider>
       <BrowserRouter>

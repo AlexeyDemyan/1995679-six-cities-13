@@ -1,5 +1,7 @@
 import { Offer } from '../../types/offer';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { AppRoute } from '../../const';
 
 type FavoriteCardProps = {
   offer: Offer;
@@ -14,9 +16,9 @@ function FavoriteCard({ offer }: FavoriteCardProps): JSX.Element {
     <li className="favorites__locations-items" id={id}>
       <div className="favorites__locations locations locations--current">
         <div className="locations__item">
-          <a className="locations__item-link" href="#">
+          <Link className="locations__item-link" to={`${AppRoute.Offer}/${id}`}>
             <span>{city}</span>
-          </a>
+          </Link>
         </div>
       </div>
       <div className="favorites__places">
@@ -37,7 +39,7 @@ function FavoriteCard({ offer }: FavoriteCardProps): JSX.Element {
               console.log(isActive);
             }}
           >
-            <a href="#">
+            <Link to={AppRoute.Offer}>
               <img
                 className="place-card__image"
                 src={imageSrc}
@@ -45,7 +47,7 @@ function FavoriteCard({ offer }: FavoriteCardProps): JSX.Element {
                 height={110}
                 alt={name}
               />
-            </a>
+            </Link>
           </div>
           <div className="favorites__card-info place-card__info">
             <div className="place-card__price-wrapper">
@@ -74,7 +76,7 @@ function FavoriteCard({ offer }: FavoriteCardProps): JSX.Element {
               </div>
             </div>
             <h2 className="place-card__name">
-              <a href="#">Nice, cozy, warm big bed apartment</a>
+            <Link to={AppRoute.Offer}>Nice, cozy, warm big bed apartment</Link>
             </h2>
             <p className="place-card__type">{type}</p>
           </div>

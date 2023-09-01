@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Offer } from '../../types/offer';
+import { Link } from 'react-router-dom';
+import { AppRoute } from '../../const';
 
 type CitiesCardProps = {
   offer: Offer;
@@ -38,7 +40,7 @@ function CitiesCard({ offer }: CitiesCardProps): JSX.Element {
           console.log(isActive);
         }}
       >
-        <a href="#">
+        <Link to={AppRoute.Offer}>
           <img
             className="place-card__image"
             src={imageSrc}
@@ -46,7 +48,7 @@ function CitiesCard({ offer }: CitiesCardProps): JSX.Element {
             height="200"
             alt={name}
           />
-        </a>
+        </Link>
       </div>
       <div className="place-card__info">
         <div className="place-card__price-wrapper">
