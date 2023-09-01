@@ -23,11 +23,11 @@ function FavoriteCard({ offer }: FavoriteCardProps): JSX.Element {
       </div>
       <div className="favorites__places">
         <article className="favorites__card place-card">
-          {isPremium ? (
+          {isPremium && (
             <div className="place-card__mark">
               <span>Premium</span>
             </div>
-          ) : null}
+          )}
           <div
             className="favorites__image-wrapper place-card__image-wrapper"
             onMouseEnter={() => {

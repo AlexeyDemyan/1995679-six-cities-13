@@ -10,7 +10,7 @@ import { AppRoute,  } from '../../const';
 import { HelmetProvider } from 'react-helmet-async';
 import { Offer } from '../../types/offer';
 
-// Need to /offer/:id routing, check how it was done
+// Need to do /offer/:id routing, check how it was done
 
 type AppScreenProps = {
   favoritesCount: number;
