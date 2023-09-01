@@ -1,18 +1,20 @@
-import CitiesCard from '../../components/cities-card/cities-card';
+import CardsList from '../../components/cards-list/cards-list';
 import Header from '../../components/header/header';
 import { Helmet } from 'react-helmet-async';
+import { Offer } from '../../types/offer';
 
 type MainScreenProps = {
   favoritesCount: number;
+  offers: Offer[];
 };
 
-function MainScreen({ favoritesCount }: MainScreenProps): JSX.Element {
+function MainScreen({ favoritesCount, offers }: MainScreenProps): JSX.Element {
   return (
     <div className="page page--gray page--main">
       <Helmet>
         <title>Main Menu</title>
       </Helmet>
-      <Header favoritesCount={favoritesCount}/>
+      <Header favoritesCount={favoritesCount} />
       <main className="page__main page__main--index">
         <h1 className="visually-hidden">Cities</h1>
         <div className="tabs">
@@ -82,13 +84,7 @@ function MainScreen({ favoritesCount }: MainScreenProps): JSX.Element {
                   </li>
                 </ul>
               </form>
-              <div className="cities__places-list places__list tabs__content">
-                <CitiesCard></CitiesCard>
-                <CitiesCard></CitiesCard>
-                <CitiesCard></CitiesCard>
-                <CitiesCard></CitiesCard>
-                <CitiesCard></CitiesCard>
-              </div>
+              <CardsList offers={offers} />
             </section>
             <div className="cities__right-section">
               <section className="cities__map map"></section>
